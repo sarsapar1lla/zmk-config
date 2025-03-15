@@ -14,45 +14,46 @@
 
                 default_layer {
 					display-name = "Base";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  #   |
-// |   -  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// |   `  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |  =   |
-//                    | ESC | LY1 | ENT |   | SPC | BSPC | LY2 |
+// ----------------------------------------------------------------------------
+// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | # |
+// |  -  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | ' |
+// |  `  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | = |
+//                   | ESC | LY1 | ENT |   | SPC | BSPC | LY2 |
                         bindings = <
-   &kp TAB   &kp Q &kp W       &kp E      &kp R        &kp T         &kp Y      &kp U        &kp I      &kp O       &kp P    &kp HASH
+   &kp TAB   &kp Q &kp W       &kp E      &kp R        &kp T         &kp Y      &kp U        &kp I      &kp O       &kp P    &kp RA(N3)
    &kp MINUS &kp A &mt LCTRL S &mt LALT D &mt LSHIFT F &mt LCMD G    &mt RCMD H &mt RSHIFT J &mt RALT K &mt RCTRL L &kp SEMI &kp SQT
    &kp GRAVE &kp Z &kp X       &kp C      &kp V        &kp B         &kp N      &kp M        &kp COMMA  &kp DOT     &kp FSLH &kp EQUAL
                                &kp ESC    &mo 1        &kp RET       &kp SPACE  &kp BSPC     &mo 2
                         >;
                 };
+
                 layer_one {
 					display-name = "Nums";
-// -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------
 // |      |  !  |  @  |  £  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  C_MUTE  |
-// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | C_VOL_DN |
-// |      |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     | C_VOL_UP |
+// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | C_VOL_UP |
+// |      |     |     |     |     |     |   | LFT | DWN |  UP | RGT |     | C_VOL_DN |
 //                    |     |     |     |   | SPC | BSPC|     |
                         bindings = <
-   &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT    &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR &kp C_MUTE
-   &trans &kp N1   &kp N2 &kp N3   &kp N4   &kp N5       &kp N6    &kp N7   &kp N8   &kp N9    &kp N0   &kp C_VOL_DN
-   &trans &trans   &trans &trans   &trans   &trans       &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &trans   &kp C_VOL_UP
-   						  &trans   &trans   &trans       &kp SPACE &kp BSPC &trans
+   &none &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT    &kp CARET &kp AMPS &kp STAR &kp LPAR  &kp RPAR &kp C_MUTE
+   &none &kp N1   &kp N2 &kp N3   &kp N4   &kp N5       &kp N6    &kp N7   &kp N8   &kp N9    &kp N0   &kp C_VOL_UP
+   &none &none    &none  &none    &none    &none        &kp LEFT  &kp DOWN &kp UP   &kp RIGHT &none    &kp C_VOL_DN
+   						 &none    &none    &none        &kp SPACE &kp BSPC &none
                         >;
                 };
 
                 layer_two {
 					display-name = "Brackets";
-// -----------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------
 // | C_BRI_UP |     |     |  [  |  ]  |  \  |   |     |      |     |     |     |        |
 // | C_BRI_DN |     |     |  {  |  }  | "|" |   |     |      |     |     |     | BT_NXT |
 // |          |     |     |     |     |     |   |     |      |     |     |     | BT_PRV |
 //                        |     | BSPC| SPC |   |     |      |     |
                         bindings = <
-   &kp C_BRI_UP &trans &trans &kp LBKT &kp RBKT &kp BSLH    &trans    &trans   &trans &trans &trans &trans
-   &kp C_BRI_DN &trans &trans &kp LBRC &kp RBRC &kp PIPE    &trans    &trans   &trans &trans &trans &bt BT_NXT
-   &trans       &trans &trans &trans   &trans   &trans      &trans    &trans   &trans &trans &trans &bt BT_PRV
-                              &trans   &kp BSPC &kp SPACE   &trans    &trans   &trans
+   &kp C_BRI_UP &none &none &kp LBKT &kp RBKT &kp BSLH    &none &none &none &none &none &none
+   &kp C_BRI_DN &none &none &kp LBRC &kp RBRC &kp PIPE    &none &none &none &none &none &bt BT_NXT
+   &none        &none &none &none    &none    &none       &none &none &none &none &none &bt BT_PRV
+                            &none    &kp BSPC &kp SPACE   &none &none &none
                         >;
                 };
         };
