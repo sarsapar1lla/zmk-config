@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
         keymap {
@@ -30,14 +31,14 @@
                 layer_one {
 					display-name = "Symbols";
 // ---------------------------------------------------------------------------
-// | C_BRI_UP |  !  |  @  |  £  |  (  |  )  |   |      |     |   |   |   |   |
-// | C_BRI_DN |  $  |  %  |  ^  |  [  |  ]  |   |      |     |   |   | : | ' |
-// |    \     |  &  |  *  | "|" |  {  |  }  |   |      |     | < | > | ? | + |
+// | C_BRI_UP |  !  |  @  |  £  |  (  |  )  |   |      |     |   |   | RESET | BOOT |
+// | C_BRI_DN |  $  |  %  |  ^  |  [  |  ]  |   |      |     |   |   |   :   |  '   |
+// |    \     |  &  |  *  | "|" |  {  |  }  |   |      |     | < | > |   ?   |  +   |
 //                        |     |     |     |   | BSPC | SPC |   |
                         bindings = <
-   &kp C_BRI_UP &kp EXCL &kp AT    &kp POUND &kp LPAR &kp RPAR    &none   &none    &none  &none  &none     &none
-   &kp C_BRI_DN &kp DLLR &kp PRCNT &kp CARET &kp LBKT &kp RBKT    &none   &none    &none  &none  &kp COLON &kp SQT
-   &kp BSLH     &kp AMPS &kp STAR  &kp PIPE  &kp LBRC &kp RBRC    &none   &none    &kp LT &kp GT &kp QMARK &kp PLUS
+   &kp C_BRI_UP &kp EXCL &kp AT    &kp POUND &kp LPAR &kp RPAR    &none   &none    &none  &none  &sys_reset &bootloader
+   &kp C_BRI_DN &kp DLLR &kp PRCNT &kp CARET &kp LBKT &kp RBKT    &none   &none    &none  &none  &kp COLON  &kp SQT
+   &kp BSLH     &kp AMPS &kp STAR  &kp PIPE  &kp LBRC &kp RBRC    &none   &none    &kp LT &kp GT &kp QMARK  &kp PLUS
                                    &none     &none    &none       &kp SPC &kp BSPC &none
                         >;
                 };
@@ -45,15 +46,15 @@
                 layer_two {
 					display-name = "Nums";
 // -----------------------------------------------------------------------------------
-// |     |  1  |  2  |  3  |     |     |   |     |        |  UP    |        |     |  C_MUTE  |
-// |     |  4  |  5  |  6  |     |     |   |     | LFT    | DWN    | RGT    |     | C_VOL_UP |
-// |     |  7  |  8  |  9  |  0  |     |   |     | BT_NXT | BT_PRV | BT_CLR |     | C_VOL_DN |
-//                   |     |     |     |   | SPC | BSPC   |        |
+// | RESET |  1  |  2  |  3  |     |     |   |     |        |  UP    |        |     |  C_MUTE  |
+// | BOOT  |  4  |  5  |  6  |     |     |   |     | LFT    | DWN    | RGT    |     | C_VOL_UP |
+// | OUT   |  7  |  8  |  9  |  0  |     |   |     | BT_NXT | BT_PRV | BT_CLR |     | C_VOL_DN |
+//                     |     |     |     |   | SPC | BSPC   |        |
                         bindings = <
-   &none &kp N1 &kp N2 &kp N3    &none    &none    &none     &none      &kp UP     &none      &none &kp C_MUTE
-   &none &kp N4 &kp N5 &kp N6    &none    &none    &none     &kp LEFT   &kp DOWN   &kp RIGHT  &none &kp C_VOL_UP
-   &none &kp N7 &kp N8 &kp N9    &kp N0   &none    &none     &bt BT_NXT &bt BT_PRV &bt BT_CLR &none &kp C_VOL_DN
-   					   &kp SPACE &kp BSPC &none    &kp SPACE &kp BSPC   &none
+   &sys_reset   &kp N1 &kp N2 &kp N3    &none    &none    &none     &none      &kp UP     &none      &none &kp C_MUTE
+   &bootloader  &kp N4 &kp N5 &kp N6    &none    &none    &none     &kp LEFT   &kp DOWN   &kp RIGHT  &none &kp C_VOL_UP
+   &out OUT_TOG &kp N7 &kp N8 &kp N9    &kp N0   &none    &none     &bt BT_NXT &bt BT_PRV &bt BT_CLR &none &kp C_VOL_DN
+   					          &kp SPACE &kp BSPC &none    &kp SPACE &kp BSPC   &none
                         >;
                 };
         };
